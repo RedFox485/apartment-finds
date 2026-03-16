@@ -192,6 +192,24 @@
   .tag-blue  { background: rgba(108,142,245,0.12); color: var(--accent); border: 1px solid rgba(108,142,245,0.2); }
   .tag-purple { background: rgba(167,139,250,0.12); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
   .tag-yellow { background: rgba(251,191,36,0.12); color: var(--yellow); border: 1px solid rgba(251,191,36,0.2); }
+  .tag-red { background: rgba(248,113,113,0.12); color: var(--red); border: 1px solid rgba(248,113,113,0.2); }
+
+  /* SOLD card */
+  .card.sold { opacity: 0.5; pointer-events: none; }
+  .card.sold::before { background: #444 !important; }
+  .sold-ribbon {
+    position: absolute;
+    top: 18px; right: -30px;
+    background: var(--red);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    z-index: 2;
+  }
 
   /* Notes */
   .notes {
@@ -269,6 +287,7 @@
   <div class="header-sub">Dog-friendly · $800–$1,500 · Denver metro · Scraped fresh today</div>
   <div class="header-meta">
     <span><span class="dot"></span> 5 active leads</span>
+    <span>🗓 Updated March 15</span>
     <span>🐕 All dog-friendly</span>
     <span>📍 Denver area</span>
   </div>
@@ -307,62 +326,88 @@
 
   <div class="section-label">⭐ Strong Leads</div>
 
-  <!-- Card 2: Glendale heat included -->
-  <div class="card good">
+  <!-- Card NEW1: Infinity Park $850 -->
+  <div class="card hot">
     <div class="card-header">
-      <div class="card-title">Glendale 1BR — Heat Included</div>
-      <div class="price-badge">$1,039/mo</div>
+      <div class="card-title">Infinity Park 1BR — Dog Park + Heated Pool</div>
+      <div class="price-badge">$850/mo</div>
     </div>
     <div class="location-row">
-      📍 1250 S Clermont St, Denver
-      <span class="neighborhood-tag">Glendale</span>
+      📍 4701 E Mississippi Ave, Denver
+      <span class="neighborhood-tag">Virginia Village / South Denver</span>
     </div>
     <div class="stats">
       <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
       <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
-      <div class="stat"><span class="stat-icon">📐</span> 750 sqft</div>
+      <div class="stat"><span class="stat-icon">📐</span> 612 sqft</div>
     </div>
     <div class="tags">
-      <span class="tag tag-green">🐕 Dogs OK</span>
-      <span class="tag tag-blue">🔥 Heat included</span>
-      <span class="tag tag-purple">🚗 Off-street parking</span>
-      <span class="tag tag-green">🌊 Doggy pool</span>
+      <span class="tag tag-green">🐕 Dog Park on-site</span>
+      <span class="tag tag-blue">🏊 8ft Heated Pool</span>
+      <span class="tag tag-purple">✨ Fully Renovated</span>
+      <span class="tag tag-yellow">💰 Best Price on List</span>
     </div>
     <div class="notes">
-      Heat included brings true cost down. Fireplace, patio/balcony, pool, hot tub. Just east of Cherry Creek — solid location, easy access everywhere.
+      Fully renovated community — new appliances, modern finishes. Dedicated dog park and heated pool. For $850 in Denver this is exceptional — expect competition, move fast. Verify credit requirements before applying.
     </div>
-    <a href="https://denver.craigslist.org/apa/d/denver-heat-included-faux-wood-flooring/7918925702.html" target="_blank" class="cta">View Listing →</a>
+    <a href="https://denver.craigslist.org/apa/d/denver-dog-park-8ft-heated-swimming/7921455511.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
-  <!-- Card 3: Congress Park 2BR -->
+  <!-- Card NEW2: Wash Park Private Landlord $1,295 -->
   <div class="card good">
     <div class="card-header">
-      <div class="card-title">Congress Park 2BR — Near Botanic Gardens</div>
-      <div class="price-badge">$1,360/mo</div>
+      <div class="card-title">Wash Park — Vintage Charm, Private Landlord</div>
+      <div class="price-badge">$1,295/mo</div>
     </div>
     <div class="location-row">
-      📍 1062 Josephine St, Denver
-      <span class="neighborhood-tag">Congress Park</span>
+      📍 Near Speer Blvd, Denver
+      <span class="neighborhood-tag">Washington Park</span>
     </div>
     <div class="stats">
-      <div class="stat"><span class="stat-icon">🛏</span> 2 bed</div>
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
       <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
-      <div class="stat"><span class="stat-icon">📐</span> 767 sqft</div>
     </div>
     <div class="tags">
       <span class="tag tag-green">🐕 Dogs OK</span>
-      <span class="tag tag-blue">💡 Utilities included</span>
-      <span class="tag tag-purple">🚗 Carport</span>
-      <span class="tag tag-yellow">⚡ EV charging</span>
+      <span class="tag tag-blue">🏠 Private landlord</span>
+      <span class="tag tag-purple">🍳 New kitchen</span>
+      <span class="tag tag-yellow">🛁 Modern bathrooms</span>
     </div>
     <div class="notes">
-      Top floor, 10-unit building — private feel. Utilities + parking included (true ~$1,200/mo value). 2 blocks from Botanic Gardens. Great neighborhood for the price.
+      Private landlord listing — vintage character with new kitchen and modernized bathrooms. Near Wash Park and Speer Blvd. Private owners = more flexible on credit. Exact address provided at inquiry. Worth a call.
     </div>
-    <a href="https://denver.craigslist.org/apa/d/denver-botanic-gardens-top-floor-2br/7920380929.html" target="_blank" class="cta">View Listing →</a>
+    <a href="https://denver.craigslist.org/apa/d/denver-fantastic-property-at-wash-park/7918901777.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
-  <!-- Card 4: Hampden W/D -->
+  <!-- Card NEW3: Spyglass Creek $999 $0 deposit -->
   <div class="card good">
+    <div class="card-header">
+      <div class="card-title">Spyglass Creek — $0 Deposit, Off-Street Parking</div>
+      <div class="price-badge">$999/mo</div>
+    </div>
+    <div class="location-row">
+      📍 7100 E Mississippi Ave, Denver
+      <span class="neighborhood-tag">East Denver</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK</span>
+      <span class="tag tag-blue">💵 $0 Deposit</span>
+      <span class="tag tag-purple">🚗 Off-street parking</span>
+      <span class="tag tag-yellow">👕 Laundry on-site</span>
+    </div>
+    <div class="notes">
+      $0 deposit is the big win here — frees up cash for move-in costs elsewhere. Recently renovated with natural views of South Denver. Easy access to downtown. Solid backup if the $850 is gone.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-laundry-facilities-deposit-off/7917027201.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+  <!-- Card 4: Hampden — SOLD -->
+  <div class="card good sold">
+    <div class="sold-ribbon">SOLD</div>
     <div class="card-header">
       <div class="card-title">Hampden 1BR — W/D In Unit</div>
       <div class="price-badge">$1,295/mo</div>
@@ -377,15 +422,11 @@
       <div class="stat"><span class="stat-icon">📐</span> 776 sqft</div>
     </div>
     <div class="tags">
-      <span class="tag tag-green">🐕 Dogs OK (up to 80 lbs)</span>
-      <span class="tag tag-blue">👕 W/D in unit</span>
-      <span class="tag tag-purple">🔥 Fireplace</span>
-      <span class="tag tag-yellow">🏠 Vaulted ceilings</span>
+      <span class="tag tag-red">❌ No longer available</span>
     </div>
     <div class="notes">
-      Furnished. Community pool + fitness center. South Denver — better for DTC-adjacent jobs, less ideal for NW Denver hustle, but solid overall value.
+      This unit went fast. Keeping for reference.
     </div>
-    <a href="https://denver.craigslist.org/apa/d/denver-upgraded-br-with-in-home-washer/7920994264.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
   <div class="section-label">⚠️ Verify First</div>
