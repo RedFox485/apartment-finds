@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel's Apartment Finds — March 13</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222536;
+    --border: #2e3248;
+    --accent: #6c8ef5;
+    --accent2: #a78bfa;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --text: #e8eaf6;
+    --muted: #7c84a8;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1d27 0%, #1e2238 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 20px 28px;
+    text-align: center;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .header-meta {
+    display: inline-flex;
+    gap: 20px;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
+
+  /* Container */
+  .container { max-width: 780px; margin: 0 auto; padding: 32px 16px 0; }
+
+  /* Section label */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .card.hot::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+  .card.good::before { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .card.caution::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+  /* Card header */
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 200px;
+  }
+  .price-badge {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--green);
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+  }
+  .price-badge.high { color: var(--yellow); }
+
+  /* Location row */
+  .location-row {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .neighborhood-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+  }
+
+  /* Stats row */
+  .stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .stat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .stat-icon { font-size: 14px; }
+
+  /* Tags */
+  .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .tag-green { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+  .tag-blue  { background: rgba(108,142,245,0.12); color: var(--accent); border: 1px solid rgba(108,142,245,0.2); }
+  .tag-purple { background: rgba(167,139,250,0.12); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
+  .tag-yellow { background: rgba(251,191,36,0.12); color: var(--yellow); border: 1px solid rgba(251,191,36,0.2); }
+
+  /* Notes */
+  .notes {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--border);
+  }
+  .notes.warn { border-left-color: var(--yellow); color: #e2c97e; }
+
+  /* Alert banner */
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .alert-warn { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.25); color: var(--yellow); }
+  .alert-hot { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #f87171; }
+
+  /* CTA button */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .cta:hover { background: #5a7de8; transform: translateY(-1px); }
+  .cta.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    margin-left: 8px;
+  }
+  .cta.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .card { padding: 18px; }
+    .card-title { font-size: 15px; }
+    .price-badge { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Daniel's Apartment Search</div>
+  <h1>New Finds — <span>March 13</span></h1>
+  <div class="header-sub">Dog-friendly · $800–$1,500 · Denver metro · Scraped fresh today</div>
+  <div class="header-meta">
+    <span><span class="dot"></span> 5 active leads</span>
+    <span>🐕 All dog-friendly</span>
+    <span>📍 Denver area</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">🔥 Top Pick</div>
+
+  <!-- Card 1: Carriage House -->
+  <div class="card hot">
+    <div class="card-header">
+      <div class="card-title">Two-Story Carriage House</div>
+      <div class="price-badge">$800/mo</div>
+    </div>
+    <div class="location-row">
+      📍 3625 W 10th Ave, Denver
+      <span class="neighborhood-tag">Sloan Lake / West Colfax</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+      <div class="stat"><span class="stat-icon">📐</span> 800 sqft</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK</span>
+      <span class="tag tag-blue">🚗 Off-street parking</span>
+      <span class="tag tag-purple">👕 Laundry on site</span>
+      <span class="tag tag-yellow">🏠 Standalone house</span>
+    </div>
+    <div class="notes">
+      Near Light Rail and Gulch Trail. Standalone two-story carriage house — not a unit in a complex, it's its own little home. ~12 min from Regis. This is a rare private landlord find.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-two-story-carriage-house-near/7920380889.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+  <div class="section-label">⭐ Strong Leads</div>
+
+  <!-- Card 2: Glendale heat included -->
+  <div class="card good">
+    <div class="card-header">
+      <div class="card-title">Glendale 1BR — Heat Included</div>
+      <div class="price-badge">$1,039/mo</div>
+    </div>
+    <div class="location-row">
+      📍 1250 S Clermont St, Denver
+      <span class="neighborhood-tag">Glendale</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+      <div class="stat"><span class="stat-icon">📐</span> 750 sqft</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK</span>
+      <span class="tag tag-blue">🔥 Heat included</span>
+      <span class="tag tag-purple">🚗 Off-street parking</span>
+      <span class="tag tag-green">🌊 Doggy pool</span>
+    </div>
+    <div class="notes">
+      Heat included brings true cost down. Fireplace, patio/balcony, pool, hot tub. Just east of Cherry Creek — solid location, easy access everywhere.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-heat-included-faux-wood-flooring/7918925702.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+  <!-- Card 3: Congress Park 2BR -->
+  <div class="card good">
+    <div class="card-header">
+      <div class="card-title">Congress Park 2BR — Near Botanic Gardens</div>
+      <div class="price-badge">$1,360/mo</div>
+    </div>
+    <div class="location-row">
+      📍 1062 Josephine St, Denver
+      <span class="neighborhood-tag">Congress Park</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 2 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+      <div class="stat"><span class="stat-icon">📐</span> 767 sqft</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK</span>
+      <span class="tag tag-blue">💡 Utilities included</span>
+      <span class="tag tag-purple">🚗 Carport</span>
+      <span class="tag tag-yellow">⚡ EV charging</span>
+    </div>
+    <div class="notes">
+      Top floor, 10-unit building — private feel. Utilities + parking included (true ~$1,200/mo value). 2 blocks from Botanic Gardens. Great neighborhood for the price.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-botanic-gardens-top-floor-2br/7920380929.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+  <!-- Card 4: Hampden W/D -->
+  <div class="card good">
+    <div class="card-header">
+      <div class="card-title">Hampden 1BR — W/D In Unit</div>
+      <div class="price-badge">$1,295/mo</div>
+    </div>
+    <div class="location-row">
+      📍 3655 S Verbena St, Denver
+      <span class="neighborhood-tag">Hampden South / Near DTC</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+      <div class="stat"><span class="stat-icon">📐</span> 776 sqft</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK (up to 80 lbs)</span>
+      <span class="tag tag-blue">👕 W/D in unit</span>
+      <span class="tag tag-purple">🔥 Fireplace</span>
+      <span class="tag tag-yellow">🏠 Vaulted ceilings</span>
+    </div>
+    <div class="notes">
+      Furnished. Community pool + fitness center. South Denver — better for DTC-adjacent jobs, less ideal for NW Denver hustle, but solid overall value.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-upgraded-br-with-in-home-washer/7920994264.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+  <div class="section-label">⚠️ Verify First</div>
+
+  <!-- Card 5: Wash Park possible scam -->
+  <div class="card caution">
+    <div class="card-header">
+      <div class="card-title">Wash Park Condo — Too Good to Be True?</div>
+      <div class="price-badge high">$1,100/mo</div>
+    </div>
+    <div class="location-row">
+      📍 33 Corona St, Denver
+      <span class="neighborhood-tag">Washington Park</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-icon">🛏</span> 1 bed</div>
+      <div class="stat"><span class="stat-icon">🛁</span> 1 bath</div>
+      <div class="stat"><span class="stat-icon">📐</span> 596 sqft</div>
+    </div>
+    <div class="tags">
+      <span class="tag tag-green">🐕 Dogs OK</span>
+      <span class="tag tag-blue">👕 W/D in unit</span>
+      <span class="tag tag-purple">🚗 Attached garage</span>
+      <span class="tag tag-blue">💡 Utilities included</span>
+    </div>
+    <div class="alert alert-warn">
+      ⚠️ Scam risk: $1,100 all-in for furnished + W/D + garage + utilities in Wash Park is significantly below market. Demand a video call walkthrough before engaging further.
+    </div>
+    <div class="notes warn">
+      If it's real, it's the best deal on this list. But it has the hallmarks of a bait-and-switch or rental scam. Proceed carefully.
+    </div>
+    <a href="https://denver.craigslist.org/apa/d/denver-luxe-condo-located-within/7919954805.html" target="_blank" class="cta">View Listing →</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  Updated March 13, 2026 · All listings dog-friendly · Budget $800–$1,500<br>
+  Scraped from Denver Craigslist today — listings may go fast ⚡
+</div>
+
+</body>
+</html>
