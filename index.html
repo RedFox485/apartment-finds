@@ -271,6 +271,37 @@
   }
   .footer a { color: var(--accent); text-decoration: none; }
 
+  /* Scam risk block */
+  .scam-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 14px;
+    border: 1px solid;
+  }
+  .scam-check.risk-low    { background: rgba(74,222,128,0.07);  border-color: rgba(74,222,128,0.2); }
+  .scam-check.risk-medium { background: rgba(251,191,36,0.07);  border-color: rgba(251,191,36,0.2); }
+  .scam-check.risk-high   { background: rgba(248,113,113,0.09); border-color: rgba(248,113,113,0.25); }
+  .risk-badge {
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .risk-low    .risk-badge { background: rgba(74,222,128,0.18);  color: #4ade80; }
+  .risk-medium .risk-badge { background: rgba(251,191,36,0.18);  color: #fbbf24; }
+  .risk-high   .risk-badge { background: rgba(248,113,113,0.18); color: #f87171; }
+  .scam-check-text { color: var(--muted); line-height: 1.55; }
+  .scam-check-text strong { color: var(--text); }
+
   /* Responsive */
   @media (max-width: 480px) {
     .card { padding: 18px; }
@@ -321,6 +352,10 @@
     <div class="notes">
       Near Light Rail and Gulch Trail. Standalone two-story carriage house — not a unit in a complex, it's its own little home. ~12 min from Regis. This is a rare private landlord find.
     </div>
+    <div class="scam-check risk-medium">
+      <span class="risk-badge">⚠️ Low–Med Risk</span>
+      <div class="scam-check-text"><strong>Verify before any money:</strong> Look up 3625 W 10th Ave on the <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Assessor" target="_blank" style="color:var(--accent)">Denver Assessor</a> — confirm the person you talk to owns it. $800 for a standalone house is below market; demand in-person walkthrough before any deposit. No Zelle/Venmo.</div>
+    </div>
     <a href="https://denver.craigslist.org/apa/d/denver-two-story-carriage-house-near/7920380889.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
@@ -350,6 +385,10 @@
     <div class="notes">
       Fully renovated community — new appliances, modern finishes. Dedicated dog park and heated pool. For $850 in Denver this is exceptional — expect competition, move fast. Verify credit requirements before applying.
     </div>
+    <div class="scam-check risk-low">
+      <span class="risk-badge">✅ Low Risk</span>
+      <div class="scam-check-text"><strong>Known managed complex</strong> (Infinity Park Apartments). Don't call the Craigslist number — Google "Infinity Park Apartments Denver" and call the number from their own website to confirm availability and pricing independently.</div>
+    </div>
     <a href="https://denver.craigslist.org/apa/d/denver-dog-park-8ft-heated-swimming/7921455511.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
@@ -376,6 +415,10 @@
     <div class="notes">
       Private landlord listing — vintage character with new kitchen and modernized bathrooms. Near Wash Park and Speer Blvd. Private owners = more flexible on credit. Exact address provided at inquiry. Worth a call.
     </div>
+    <div class="scam-check risk-high">
+      <span class="risk-badge">🚩 Med–High Risk</span>
+      <div class="scam-check-text"><strong>No address in listing</strong> — biggest red flag on this list. Ask for the exact address before replying further. Once you have it, run it on the <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Assessor" target="_blank" style="color:var(--accent)">Denver Assessor</a> immediately. If they won't provide an address, walk away. Reverse image search all photos before engaging.</div>
+    </div>
     <a href="https://denver.craigslist.org/apa/d/denver-fantastic-property-at-wash-park/7918901777.html" target="_blank" class="cta">View Listing →</a>
   </div>
 
@@ -401,6 +444,10 @@
     </div>
     <div class="notes">
       $0 deposit is the big win here — frees up cash for move-in costs elsewhere. Recently renovated with natural views of South Denver. Easy access to downtown. Solid backup if the $850 is gone.
+    </div>
+    <div class="scam-check risk-low">
+      <span class="risk-badge">✅ Low Risk</span>
+      <div class="scam-check-text"><strong>Known managed complex</strong> (Spyglass Creek Apartments). Same rule: Google the complex name and call their direct number to confirm the $0 deposit promo is real and the unit is available — don't rely solely on the Craigslist contact.</div>
     </div>
     <a href="https://denver.craigslist.org/apa/d/denver-laundry-facilities-deposit-off/7917027201.html" target="_blank" class="cta">View Listing →</a>
   </div>
@@ -453,10 +500,14 @@
       <span class="tag tag-blue">💡 Utilities included</span>
     </div>
     <div class="alert alert-warn">
-      ⚠️ Scam risk: $1,100 all-in for furnished + W/D + garage + utilities in Wash Park is significantly below market. Demand a video call walkthrough before engaging further.
+      ⚠️ Price alert: $1,100 all-in for furnished + W/D + garage + utilities in Wash Park is ~$600 below market. Extreme deals are the #1 scam signal.
+    </div>
+    <div class="scam-check risk-high">
+      <span class="risk-badge">🚨 High Risk</span>
+      <div class="scam-check-text"><strong>Run all checks before any contact:</strong> Reverse image search every photo. Look up 33 Corona St on the <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Assessor" target="_blank" style="color:var(--accent)">Denver Assessor</a> — confirm ownership matches who you're talking to. Demand in-person walkthrough (not just video). Zero money until you've seen it, verified the owner, and signed a real lease. If they push for Zelle or say they're "out of town" — it's a scam.</div>
     </div>
     <div class="notes warn">
-      If it's real, it's the best deal on this list. But it has the hallmarks of a bait-and-switch or rental scam. Proceed carefully.
+      If it's real, it's the best deal on this list. Treat it like it's probably not.
     </div>
     <a href="https://denver.craigslist.org/apa/d/denver-luxe-condo-located-within/7919954805.html" target="_blank" class="cta">View Listing →</a>
   </div>
@@ -464,8 +515,8 @@
 </div>
 
 <div class="footer">
-  Updated March 13, 2026 · All listings dog-friendly · Budget $800–$1,500<br>
-  Scraped from Denver Craigslist today — listings may go fast ⚡
+  Updated March 15, 2026 · All listings dog-friendly · Budget $800–$1,500<br>
+  Each listing includes a scam risk check — verify ownership before any deposit ⚡
 </div>
 
 </body>
